@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmh8kmu8j7tn7"]
+[gd_scene load_steps=5 format=3 uid="uid://fu0iw37jpmal"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_8idm4"]
-[ext_resource type="SpriteFrames" uid="uid://q2537wbdfuhb" path="res://Sprites/SpriteFrames/enemy_running.tres" id="1_ggkbk"]
-[ext_resource type="PackedScene" uid="uid://dow4vyaa53hfn" path="res://Scenes/HealthBar.tscn" id="3_lwhu2"]
+[ext_resource type="SpriteFrames" uid="uid://8mcoxty4sdm8" path="res://Sprites/SpriteFrames/enemy_running.tres" id="1_ggkbk"]
+[ext_resource type="PackedScene" path="res://Scenes/HealthBar.tscn" id="3_lwhu2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lbri"]
 size = Vector2(10, 12)
