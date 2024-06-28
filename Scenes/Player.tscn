@@ -1,12 +1,28 @@
-[gd_scene load_steps=13 format=3 uid="uid://dn1no82mkvohx"]
+[gd_scene load_steps=11 format=3 uid="uid://dn1no82mkvohx"]
 
-[ext_resource type="SpriteFrames" uid="uid://mt6we7f56io0" path="res://Sprites/SpriteFrames/PlayerRunning.tres" id="1_agmoa"]
+[ext_resource type="SpriteFrames" uid="uid://cysfme8c7vmy8" path="res://Sprites/SpriteFrames/PlayerRunning.tres" id="1_agmoa"]
 [ext_resource type="Script" path="res://Player.gd" id="1_wu3mh"]
 [ext_resource type="Texture2D" uid="uid://cwv8ukin2koai" path="res://Tiles/tile_0127.png" id="3_8rtw4"]
 [ext_resource type="Script" path="res://Scenes/Weapon.gd" id="4_1q3bt"]
+[ext_resource type="PackedScene" uid="uid://dow4vyaa53hfn" path="res://Scenes/HealthBar.tscn" id="5_sr1ur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq7ey"]
 size = Vector2(18, 20)
+
+[sub_resource type="Animation" id="Animation_s5sr3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.24973]
+}
 
 [sub_resource type="Animation" id="Animation_6y7ic"]
 resource_name = "attack"
@@ -24,21 +40,6 @@ tracks/0/keys = {
 "values": [0.0, 2.0944, 0.785398]
 }
 
-[sub_resource type="Animation" id="Animation_s5sr3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.24973]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ns2i7"]
 _data = {
 "RESET": SubResource("Animation_s5sr3"),
@@ -48,26 +49,6 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xp83o"]
 radius = 5.0
 height = 18.0
-
-[sub_resource type="ImageTexture" id="ImageTexture_gkgai"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_7meb5"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5eagr"]
-bg_color = Color(1, 0, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
@@ -109,18 +90,9 @@ shape = SubResource("CapsuleShape2D_xp83o")
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
 
-[node name="HealthBar" type="HSlider" parent="."]
-z_index = 1000
-offset_left = -24.0
-offset_top = -23.0
-offset_right = 24.0
-offset_bottom = -7.0
-theme_override_icons/grabber = SubResource("ImageTexture_gkgai")
-theme_override_icons/grabber_disabled = SubResource("ImageTexture_7meb5")
-theme_override_styles/slider = SubResource("StyleBoxFlat_5eagr")
-editable = false
-scrollable = false
+[node name="HealthBar" parent="." instance=ExtResource("5_sr1ur")]
 
 [connection signal="animation_finished" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_finished"]
 [connection signal="animation_started" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_started"]
 [connection signal="body_entered" from="Animation/Weapon/AttackArea" to="Animation/Weapon" method="_on_attack_area_body_entered"]
+[connection signal="owner_died" from="HealthBar" to="." method="_on_died"]
