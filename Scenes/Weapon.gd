@@ -21,3 +21,6 @@ func _on_attack_animation_started(anim_name):
 func _on_attack_animation_finished(anim_name):
 	attack_box.process_mode = Node.PROCESS_MODE_DISABLED
 	attacking = false
+
+func _on_attack_area_body_entered(body):
+	print("Enemy hit")

@@ -79,6 +79,7 @@ libraries = {
 
 [node name="AttackArea" type="Area2D" parent="Animation/Weapon"]
 process_mode = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Animation/Weapon/AttackArea"]
 position = Vector2(1, -6)
@@ -89,3 +90,4 @@ zoom = Vector2(2.5, 2.5)
 
 [connection signal="animation_finished" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_finished"]
 [connection signal="animation_started" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_started"]
+[connection signal="body_entered" from="Animation/Weapon/AttackArea" to="Animation/Weapon" method="_on_attack_area_body_entered"]
