@@ -96,8 +96,5 @@ offset_bottom = -7.0
 
 [connection signal="animation_finished" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_finished"]
 [connection signal="animation_started" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_started"]
-[connection signal="area_entered" from="Animation/Weapon/AttackArea" to="Animation/Weapon" method="_on_attack_area_area_entered"]
-[connection signal="area_shape_entered" from="Animation/Weapon/AttackArea" to="Animation/Weapon" method="_on_attack_area_area_shape_entered"]
-[connection signal="body_entered" from="Animation/Weapon/AttackArea" to="Animation/Weapon" method="_on_attack_area_body_entered"]
-[connection signal="body_shape_entered" from="Animation/Weapon/AttackArea" to="Animation/Weapon" method="_on_attack_area_body_shape_entered"]
+[connection signal="body_entered" from="Animation/Weapon/AttackArea" to="Animation/Weapon" method="_on_attack_landed"]
 [connection signal="owner_died" from="HealthBar" to="." method="_on_died"]
