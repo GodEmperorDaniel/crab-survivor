@@ -1,9 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://dn1no82mkvohx"]
 
-[ext_resource type="Texture2D" uid="uid://dvsxoxhgp3xmh" path="res://icon.svg" id="1_5drst"]
+[ext_resource type="SpriteFrames" uid="uid://mt6we7f56io0" path="res://Sprites/SpriteFrames/PlayerRunning.tres" id="1_agmoa"]
 [ext_resource type="Script" path="res://Player.gd" id="1_wu3mh"]
 
-[node name="Sprite2D" type="Sprite2D"]
-texture = ExtResource("1_5drst")
+[node name="Player" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_agmoa")
+animation = &"running"
+speed_scale = 2.0
 script = ExtResource("1_wu3mh")
 speed = 300.0
