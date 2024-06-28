@@ -1,16 +1,15 @@
-extends AnimatedSprite2D
+extends CharacterBody2D
 
 @export var speed : float = 1
-@onready var rigidbody : RigidBody2D = $RigidBody
+@onready var animation = $Animation
 
 var movement : Vector2 = Vector2.ZERO
 
 func _process(delta):
 	process_movement()
-	position = rigidbody.position
 	
 func _physics_process(delta):
-	rigidbody.linear_velocity = movement * speed * delta
+	move_and_collide(movement * speed * delta)
 
 func process_movement():
 	movement = Vector2.ZERO
@@ -30,8 +29,8 @@ func process_movement():
 		movement_stopped()
 
 func movement_started():
-	play("running")
-	flip_h = movement.x < 0
+	animation.play("running")
+	animation.flip_h = movement.x < 0
 
 func movement_stopped():
-	stop()
+	animation.stop()

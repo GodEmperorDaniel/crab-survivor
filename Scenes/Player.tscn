@@ -8,29 +8,27 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq7ey"]
 size = Vector2(18, 20)
 
-[node name="Player" type="AnimatedSprite2D"]
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_wu3mh")
+speed = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_aq7ey")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
 z_index = 1
 sprite_frames = ExtResource("1_agmoa")
 animation = &"running"
 speed_scale = 2.0
-script = ExtResource("1_wu3mh")
-speed = 150.0
 
-[node name="Weapon" type="Sprite2D" parent="."]
+[node name="Weapon" type="Sprite2D" parent="Animation"]
 z_index = -1
 position = Vector2(15, 2)
 rotation = 0.837758
 texture = ExtResource("3_8rtw4")
 flip_h = true
 script = ExtResource("4_1q3bt")
-
-[node name="RigidBody" type="RigidBody2D" parent="."]
-gravity_scale = 0.0
-lock_rotation = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody"]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_aq7ey")
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
