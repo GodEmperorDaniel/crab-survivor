@@ -1,12 +1,27 @@
 [gd_scene load_steps=13 format=3 uid="uid://dn1no82mkvohx"]
 
-[ext_resource type="SpriteFrames" uid="uid://mt6we7f56io0" path="res://Sprites/SpriteFrames/PlayerRunning.tres" id="1_agmoa"]
+[ext_resource type="SpriteFrames" uid="uid://mt6we7f56io0" path="res://Sprites/SpriteFrames/player_running.tres" id="1_agmoa"]
 [ext_resource type="Script" path="res://Player.gd" id="1_wu3mh"]
 [ext_resource type="Texture2D" uid="uid://cwv8ukin2koai" path="res://Tiles/tile_0127.png" id="3_8rtw4"]
 [ext_resource type="Script" path="res://Scenes/Weapon.gd" id="4_1q3bt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq7ey"]
 size = Vector2(18, 20)
+
+[sub_resource type="Animation" id="Animation_s5sr3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.24973]
+}
 
 [sub_resource type="Animation" id="Animation_6y7ic"]
 resource_name = "attack"
@@ -22,21 +37,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 2.0944, 0.785398]
-}
-
-[sub_resource type="Animation" id="Animation_s5sr3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.24973]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ns2i7"]
