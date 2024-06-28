@@ -26,7 +26,7 @@ func _on_attack_animation_finished(anim_name):
 	attacking = false
 	hit_enemies.clear()
 
-func _on_attack_area_body_entered(body):
+func _on_attack_landed(body):
 	if not body is Enemy:
 		pass
 	
