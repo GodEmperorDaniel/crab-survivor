@@ -14,3 +14,7 @@ func _physics_process(delta):
 		velocity = direction * SPEED
 
 	move_and_slide()
+
+
+func _on_died():
+	queue_free()

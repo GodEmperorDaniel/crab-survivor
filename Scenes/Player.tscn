@@ -91,6 +91,8 @@ shape = SubResource("CapsuleShape2D_xp83o")
 zoom = Vector2(2.5, 2.5)
 
 [node name="HealthBar" parent="." instance=ExtResource("5_sr1ur")]
+offset_top = -23.0
+offset_bottom = -7.0
 
 [connection signal="animation_finished" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_finished"]
 [connection signal="animation_started" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_started"]
