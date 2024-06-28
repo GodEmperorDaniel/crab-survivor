@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dn1no82mkvohx"]
+[gd_scene load_steps=13 format=3 uid="uid://dn1no82mkvohx"]
 
 [ext_resource type="SpriteFrames" uid="uid://mt6we7f56io0" path="res://Sprites/SpriteFrames/PlayerRunning.tres" id="1_agmoa"]
 [ext_resource type="Script" path="res://Player.gd" id="1_wu3mh"]
@@ -49,7 +49,28 @@ _data = {
 radius = 5.0
 height = 18.0
 
+[sub_resource type="ImageTexture" id="ImageTexture_gkgai"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_7meb5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5eagr"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_wu3mh")
 speed = 100.0
 
@@ -87,6 +108,18 @@ shape = SubResource("CapsuleShape2D_xp83o")
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
+
+[node name="HealthBar" type="HSlider" parent="."]
+z_index = 1000
+offset_left = -24.0
+offset_top = -23.0
+offset_right = 24.0
+offset_bottom = -7.0
+theme_override_icons/grabber = SubResource("ImageTexture_gkgai")
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_7meb5")
+theme_override_styles/slider = SubResource("StyleBoxFlat_5eagr")
+editable = false
+scrollable = false
 
 [connection signal="animation_finished" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_finished"]
 [connection signal="animation_started" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_started"]
