@@ -25,3 +25,7 @@ func movement_started():
 
 func movement_stopped():
 	animation.stop()
+
+
+func _on_died():
+	queue_free()
