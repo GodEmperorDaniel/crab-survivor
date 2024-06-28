@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed : float = 1
 @onready var animation = $Animation
 
-var movement : Vector2 = Vector2.ZERO
+var movement := Vector2.ZERO
 
 func _process(delta):
 	process_movement()
@@ -12,16 +12,7 @@ func _physics_process(delta):
 	move_and_collide(movement * speed * delta)
 
 func process_movement():
-	movement = Vector2.ZERO
-	if Input.is_action_pressed("move_left"):
-		movement.x -= speed
-	if Input.is_action_pressed("move_right"):
-		movement.x += speed
-	
-	if Input.is_action_pressed("move_up"):
-		movement.y -= speed
-	if Input.is_action_pressed("move_down"):
-		movement.y += speed
+	movement = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down"))
 	
 	if movement.length_squared() > 0:
 		movement_started()

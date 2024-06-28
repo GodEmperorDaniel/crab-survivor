@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn1no82mkvohx"]
+[gd_scene load_steps=10 format=3 uid="uid://dn1no82mkvohx"]
 
 [ext_resource type="SpriteFrames" uid="uid://mt6we7f56io0" path="res://Sprites/SpriteFrames/PlayerRunning.tres" id="1_agmoa"]
 [ext_resource type="Script" path="res://Player.gd" id="1_wu3mh"]
@@ -8,9 +8,50 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq7ey"]
 size = Vector2(18, 20)
 
+[sub_resource type="Animation" id="Animation_6y7ic"]
+resource_name = "attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 2.0944, 0.785398]
+}
+
+[sub_resource type="Animation" id="Animation_s5sr3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.24973]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ns2i7"]
+_data = {
+"RESET": SubResource("Animation_s5sr3"),
+"attack": SubResource("Animation_6y7ic")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xp83o"]
+radius = 5.0
+height = 18.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_wu3mh")
-speed = 10.0
+speed = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -24,11 +65,27 @@ speed_scale = 2.0
 
 [node name="Weapon" type="Sprite2D" parent="Animation"]
 z_index = -1
-position = Vector2(15, 2)
-rotation = 0.837758
+position = Vector2(9, 7)
+rotation = 2.24973
 texture = ExtResource("3_8rtw4")
+offset = Vector2(0, -8)
 flip_h = true
 script = ExtResource("4_1q3bt")
 
+[node name="Animation" type="AnimationPlayer" parent="Animation/Weapon"]
+libraries = {
+"": SubResource("AnimationLibrary_ns2i7")
+}
+
+[node name="AttackArea" type="Area2D" parent="Animation/Weapon"]
+process_mode = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Animation/Weapon/AttackArea"]
+position = Vector2(1, -6)
+shape = SubResource("CapsuleShape2D_xp83o")
+
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
+
+[connection signal="animation_finished" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_finished"]
+[connection signal="animation_started" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_started"]
