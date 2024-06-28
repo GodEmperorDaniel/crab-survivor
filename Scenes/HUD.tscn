@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://8nlmluv324ay"]
+
+[ext_resource type="Texture2D" uid="uid://0a2swy8muyhd" path="res://Tiles/tile_0093.png" id="1_0jsp6"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cash" type="HSplitContainer" parent="."]
+layout_mode = 0
+offset_right = 52.0
+offset_bottom = 23.0
+theme_override_constants/separation = 0
+
+[node name="Icon" type="TextureRect" parent="Cash"]
+layout_direction = 2
+layout_mode = 2
+texture = ExtResource("1_0jsp6")
+stretch_mode = 5
+
+[node name="Amount" type="Label" parent="Cash"]
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 1
+text = "100"
