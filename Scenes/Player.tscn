@@ -1,11 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn1no82mkvohx"]
+[gd_scene load_steps=6 format=3 uid="uid://dn1no82mkvohx"]
 
 [ext_resource type="SpriteFrames" uid="uid://mt6we7f56io0" path="res://Sprites/SpriteFrames/PlayerRunning.tres" id="1_agmoa"]
 [ext_resource type="Script" path="res://Player.gd" id="1_wu3mh"]
+[ext_resource type="Texture2D" uid="uid://cwv8ukin2koai" path="res://Tiles/tile_0127.png" id="3_8rtw4"]
+[ext_resource type="Script" path="res://Scenes/Weapon.gd" id="4_1q3bt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq7ey"]
+size = Vector2(18, 20)
 
 [node name="Player" type="AnimatedSprite2D"]
+z_index = 1
 sprite_frames = ExtResource("1_agmoa")
 animation = &"running"
 speed_scale = 2.0
 script = ExtResource("1_wu3mh")
-speed = 300.0
+speed = 150.0
+
+[node name="Weapon" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(15, 2)
+rotation = 0.837758
+texture = ExtResource("3_8rtw4")
+flip_h = true
+script = ExtResource("4_1q3bt")
+
+[node name="RigidBody" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_aq7ey")
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)

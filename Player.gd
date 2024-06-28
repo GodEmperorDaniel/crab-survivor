@@ -1,13 +1,16 @@
 extends AnimatedSprite2D
 
 @export var speed : float = 1
+@onready var rigidbody : RigidBody2D = $RigidBody
 
 var movement : Vector2 = Vector2.ZERO
 
 func _process(delta):
 	process_movement()
+	position = rigidbody.position
 	
-	position += movement * delta
+func _physics_process(delta):
+	rigidbody.linear_velocity = movement * speed * delta
 
 func process_movement():
 	movement = Vector2.ZERO

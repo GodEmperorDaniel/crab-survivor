@@ -2,36 +2,36 @@
 
 [ext_resource type="Texture2D" uid="uid://tsl7oj1smglm" path="res://Sprites/PlayerRunning.png" id="1_xh3hw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ieljo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uc86"]
 atlas = ExtResource("1_xh3hw")
-region = Rect2(0, 0, 120, 120)
+region = Rect2(0, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_taje4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iioub"]
 atlas = ExtResource("1_xh3hw")
-region = Rect2(120, 0, 120, 120)
+region = Rect2(24, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rywqn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mqb3"]
 atlas = ExtResource("1_xh3hw")
-region = Rect2(240, 0, 120, 120)
+region = Rect2(48, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6hcsr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s121q"]
 atlas = ExtResource("1_xh3hw")
-region = Rect2(360, 0, 120, 120)
+region = Rect2(72, 0, 24, 24)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ieljo")
+"texture": SubResource("AtlasTexture_4uc86")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_taje4")
+"texture": SubResource("AtlasTexture_iioub")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rywqn")
+"texture": SubResource("AtlasTexture_3mqb3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6hcsr")
+"texture": SubResource("AtlasTexture_s121q")
 }],
 "loop": true,
 "name": &"running",
