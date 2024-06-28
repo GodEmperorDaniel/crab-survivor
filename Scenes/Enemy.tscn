@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://fu0iw37jpmal"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_8idm4"]
+[ext_resource type="SpriteFrames" uid="uid://8mcoxty4sdm8" path="res://Sprites/SpriteFrames/enemy_running.tres" id="1_ggkbk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lbri"]
+size = Vector2(10, 12)
+
+[node name="Enemy" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_8idm4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_8lbri")
+debug_color = Color(0, 0.6, 0.701961, 0.4)
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_ggkbk")
+animation = &"running"

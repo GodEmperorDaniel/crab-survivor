@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://8mcoxty4sdm8"]
+
+[ext_resource type="Texture2D" uid="uid://bkl1fdb1hvsef" path="res://Sprites/enemy_running.png" id="1_ja4og"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n03jd"]
+atlas = ExtResource("1_ja4og")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vamf7"]
+atlas = ExtResource("1_ja4og")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7ffu"]
+atlas = ExtResource("1_ja4og")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxvjj"]
+atlas = ExtResource("1_ja4og")
+region = Rect2(72, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n03jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vamf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7ffu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxvjj")
+}],
+"loop": true,
+"name": &"running",
+"speed": 5.0
+}]
