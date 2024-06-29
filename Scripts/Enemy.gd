@@ -1,21 +1,27 @@
 extends CharacterBody2D
 class_name Enemy
 
-const SPEED = 50
+@export var speed = 50.0
 
 var player = Player
 @onready var anim = $Animation
 @onready var health_bar = $HealthBar
 
-func _physics_process(delta):
+var vel = Vector2.ZERO
+
+func init(_position):
+	position = _position
+
+func _process(delta):
 	if(player == null):
 		pass
 	var direction = (player.position - position).normalized()
 	if direction:
 		anim.play("running")
-		velocity = direction * SPEED
+		vel = direction * speed * delta
 
-	move_and_slide()
+func _physics_process(delta):
+	move_and_collide(vel)
 
 func attack(damage):
 	health_bar.health -= damage
