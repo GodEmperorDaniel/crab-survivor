@@ -2,6 +2,9 @@ extends CharacterBody2D
 class_name Enemy
 
 @export var speed = 50.0
+@export var attack_range = 20
+@export var attack_damage = 2.0
+@onready var timer = $Timer
 
 var player = Player
 @onready var anim = $Animation
@@ -19,10 +22,14 @@ func _process(delta):
 	if(player == null):
 		pass
 	vel = Vector2.ZERO
-	var direction = (player.position - position).normalized()
+	var direction = (player.position - position)
 	if direction:
-		anim.play("running")
-		vel = direction
+		if (direction.length() < attack_range and timer.paused):
+			print("started attack timer")
+			timer.start(1)
+		else:
+			anim.play("running")
+			vel = direction.normalized()
 
 func _physics_process(delta):
 	move_and_collide(vel * delta * speed)
@@ -30,8 +37,12 @@ func _physics_process(delta):
 func attack(damage):
 	health_bar.health -= damage
 
+func do_attack():
+	print("attacked")
+	player.attack(attack_damage)
+
 func _on_died():
 	var new_coin := coin.instantiate()
 	new_coin.position = position
-	add_sibling(new_coin)
+	call_deferred("add_sibling",new_coin)
 	queue_free()

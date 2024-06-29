@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal coin_picked_up
 @export var speed : float = 1
 @onready var animation = $Animation
+@onready var health_bar = $HealthBar
 
 var movement : Vector2 = Vector2.ZERO
 
@@ -36,9 +37,11 @@ func movement_started():
 func movement_stopped():
 	animation.stop()
 
+func attack(damage):
+	health_bar.health -= damage
+
 func _on_died():
 	queue_free()
-
 
 func _on_coin_picked_up():
 	HUD.coins += 1

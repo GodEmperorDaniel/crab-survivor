@@ -18,3 +18,5 @@ func _process(delta):
 		var random_index = randi_range(0,spawn_locations.size()-1)
 		enemy.init(spawn_locations[random_index].position)
 		add_child(enemy)
+
+
