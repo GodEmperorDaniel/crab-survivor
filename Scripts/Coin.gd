@@ -1,7 +1,6 @@
 extends Sprite2D
 
 func _on_area_entered(body):
-	print("Area entered")
 	if body != Player:
 		return
 	
