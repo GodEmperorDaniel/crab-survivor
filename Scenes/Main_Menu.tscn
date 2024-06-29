@@ -1,0 +1,188 @@
+[gd_scene load_steps=19 format=3 uid="uid://c5s1jpdtaxi6e"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_qa8lc"]
+[ext_resource type="PackedScene" uid="uid://bhoufngem8jup" path="res://Scenes/Main_Scene.tscn" id="2_1eklb"]
+
+[sub_resource type="Gradient" id="Gradient_svwqv"]
+colors = PackedColorArray(1, 0, 0, 1, 0.333333, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h7cjv"]
+gradient = SubResource("Gradient_svwqv")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ercm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dfou8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rfx7n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lwcbx"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_u6vg7"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_tdg3m"]
+events = [SubResource("InputEventKey_u6vg7")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hxwmv"]
+font_size = 30
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7fqn1"]
+font_size = 25
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_600i5"]
+font_size = 25
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbwp4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j4xc0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oh5qe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hlq6b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ovx5j"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qa8lc")
+scene_change = ExtResource("2_1eklb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_h7cjv")
+
+[node name="Buttons" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainGame" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 391.5
+offset_top = 269.5
+offset_right = 720.5
+offset_bottom = 338.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ercm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dfou8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rfx7n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lwcbx")
+shortcut = SubResource("Shortcut_tdg3m")
+text = "Crab Survivor"
+
+[node name="Credits" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 999.0
+offset_top = 553.0
+offset_right = 1068.0
+offset_bottom = 581.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ercm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dfou8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rfx7n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lwcbx")
+shortcut = SubResource("Shortcut_tdg3m")
+text = "Credits
+"
+
+[node name="Credits" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -38.5
+offset_right = 75.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top" type="Label" parent="CanvasLayer/Credits/VBoxContainer"]
+layout_mode = 2
+text = "A game made by:"
+label_settings = SubResource("LabelSettings_hxwmv")
+horizontal_alignment = 1
+
+[node name="Axel" type="Label" parent="CanvasLayer/Credits/VBoxContainer"]
+layout_mode = 2
+text = "Axel Holm
+"
+label_settings = SubResource("LabelSettings_7fqn1")
+horizontal_alignment = 1
+
+[node name="Jonathan" type="Label" parent="CanvasLayer/Credits/VBoxContainer"]
+layout_mode = 2
+text = "Jonathan Börjesson"
+label_settings = SubResource("LabelSettings_600i5")
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="CanvasLayer/Credits"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_top = -55.0
+offset_right = -25.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sbwp4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j4xc0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oh5qe")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hlq6b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ovx5j")
+text = "Return To Main Menu"
+
+[connection signal="button_down" from="CanvasLayer/Buttons/MainGame" to="." method="_on_button_down_start_game"]
+[connection signal="button_down" from="CanvasLayer/Buttons/Credits" to="." method="_on_button_down_credits"]
+[connection signal="button_down" from="CanvasLayer/Credits/ReturnButton" to="." method="_on_return_button_button_down"]
