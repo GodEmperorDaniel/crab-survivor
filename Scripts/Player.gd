@@ -4,6 +4,11 @@ signal coin_picked_up
 @export var speed : float = 1
 @onready var animation = $Animation
 @onready var health_bar = $HealthBar
+var coins : int = 0 :
+	get:
+		return HUD.coins
+	set(new_value):
+		HUD.coins = new_value
 
 var movement : Vector2 = Vector2.ZERO
 
@@ -44,4 +49,4 @@ func _on_died():
 	queue_free()
 
 func _on_coin_picked_up():
-	HUD.coins += 1
+	coins += 1
