@@ -13,8 +13,8 @@ var coins : int = 0 :
 		coins = new_value
 		_amount_text.text = str(coins)
 
-func open_shop():
-	_shop.visible = true
+func toggle_shop(toggle_on : bool):
+	_shop.visible = toggle_on
 
 func toggle_wave_cleared_control(toggle_on : bool):
 	_wave_clear.visible = toggle_on
