@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://du1yohx7iwbre" path="res://Tiles/tile_0119.png" id="1_jth0r"]
 [ext_resource type="Script" path="res://Scripts/Arrow.gd" id="1_srmk4"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lffpl"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbxs3"]
 radius = 5.0
 height = 20.0
 
@@ -17,7 +17,7 @@ speed = 300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.292893, -0.707107)
-shape = SubResource("CapsuleShape2D_lffpl")
+shape = SubResource("CapsuleShape2D_lbxs3")
 
 [node name="ArrowSprite" type="Sprite2D" parent="."]
 rotation = -0.785398
