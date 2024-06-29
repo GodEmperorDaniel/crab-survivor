@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://cka81gx5qqtng"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aotp0"]
+font_size = 38
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iahpp"]
+bg_color = Color(1, 1, 1, 0.905882)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 20
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_6syaq"]
+font_size = 20
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vq6a1"]
+font_size = 20
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VerticalBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_right = 63.0
+offset_bottom = 49.0
+grow_horizontal = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TopText" type="Label" parent="VerticalBox"]
+layout_mode = 2
+text = "Cleared All Waves!
+"
+label_settings = SubResource("LabelSettings_aotp0")
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="VerticalBox"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_iahpp")
+
+[node name="SubText" type="Label" parent="VerticalBox"]
+layout_mode = 2
+text = "Do you wish to continue or return to menu?"
+label_settings = SubResource("LabelSettings_6syaq")
+horizontal_alignment = 1
+
+[node name="ReadyNext" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -123.0
+offset_right = 106.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press [R] To continue or [M] To return to Main Menu"
+label_settings = SubResource("LabelSettings_vq6a1")
+horizontal_alignment = 1
