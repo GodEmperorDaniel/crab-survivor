@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://gx26iwv5q5iq"]
+[gd_scene load_steps=5 format=3 uid="uid://b5q1la3ghkqst"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aotp0"]
 font_size = 38
@@ -34,6 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="VerticalBox" type="VBoxContainer" parent="."]
 layout_mode = 1

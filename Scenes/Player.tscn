@@ -1,15 +1,46 @@
-[gd_scene load_steps=13 format=3 uid="uid://dn1no82mkvohx"]
+[gd_scene load_steps=17 format=3 uid="uid://dn1no82mkvohx"]
 
 [ext_resource type="SpriteFrames" uid="uid://3dubb53wq3h" path="res://Sprites/SpriteFrames/player_running.tres" id="1_agmoa"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_wu3mh"]
-[ext_resource type="PackedScene" uid="uid://dfa4a3livjsy0" path="res://Scenes/Bow.tscn" id="2_d2wox"]
 [ext_resource type="Script" path="res://Scripts/WeaponPivot.gd" id="3_7mxgx"]
-[ext_resource type="PackedScene" path="res://Scenes/Bomb.tscn" id="3_rl6ch"]
-[ext_resource type="PackedScene" uid="uid://buvwbxu4otwmp" path="res://Scenes/Axe.tscn" id="4_2qjnj"]
+[ext_resource type="PackedScene" uid="uid://dmx7dh8lrjbh4" path="res://Scenes/Bomb.tscn" id="3_rl6ch"]
+[ext_resource type="PackedScene" uid="uid://d2ht2wwkchcs2" path="res://Scenes/Axe.tscn" id="4_2qjnj"]
+[ext_resource type="Script" path="res://Scripts/Arrow.gd" id="4_fqwxi"]
 [ext_resource type="Texture2D" uid="uid://8mf3v08lmirn" path="res://Tiles/tile_0118.png" id="4_wfoe2"]
-[ext_resource type="PackedScene" uid="uid://2d4syg6c6ihp" path="res://Scenes/HealthBar.tscn" id="5_sr1ur"]
+[ext_resource type="Texture2D" uid="uid://du1yohx7iwbre" path="res://Tiles/tile_0119.png" id="5_dejmv"]
+[ext_resource type="PackedScene" uid="uid://dow4vyaa53hfn" path="res://Scenes/HealthBar.tscn" id="5_sr1ur"]
 [ext_resource type="Script" path="res://Scripts/Bow.gd" id="5_ug4ou"]
-[ext_resource type="PackedScene" uid="uid://do818fx4jpskm" path="res://Scenes/Arrow.tscn" id="6_0tlba"]
+[ext_resource type="PackedScene" uid="uid://j3ap3cxdcgi8" path="res://Scenes/Arrow.tscn" id="6_0tlba"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lffpl"]
+radius = 5.0
+height = 20.0
+
+[sub_resource type="PackedScene" id="PackedScene_rj545"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Arrow", "RigidBody2D", "collision_layer", "collision_mask", "gravity_scale", "lock_rotation", "script", "speed", "CollisionShape2D", "CollisionShape2D", "position", "shape", "ArrowSprite", "Sprite2D", "rotation", "texture"),
+"node_count": 3,
+"node_paths": [NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 6, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 0, 1073741824, 0, 9, 8, -1, 2, 10, 6, 11, 7, 0, 1073741825, 0, 13, 12, -1, 2, 14, 8, 15, 9, 0),
+"variants": [8, 2, 0.0, true, ExtResource("4_fqwxi"), 300, Vector2(-0.292893, -0.707107), SubResource("CapsuleShape2D_lffpl"), -0.785398, ExtResource("5_dejmv")],
+"version": 3
+}
+
+[sub_resource type="PackedScene" id="PackedScene_88q1l"]
+_bundled = {
+"conn_count": 2,
+"conns": PackedInt32Array(1073741826, 1073741825, 9, 8, 2, 0, 0, 1073741828, 1073741827, 11, 10, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("Bow", "Sprite2D", "texture", "script", "arrow", "ShootTimer", "Timer", "wait_time", "_on_attack_initiated", "attack_initiated", "_on_shoot_timer_timeout", "timeout"),
+"node_count": 2,
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("ShootTimer")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 1073741824, 0, 6, 5, -1, 1, 7, 3, 0),
+"variants": [ExtResource("4_wfoe2"), ExtResource("5_ug4ou"), SubResource("PackedScene_rj545"), 0.2],
+"version": 3
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq7ey"]
 size = Vector2(18, 20)
@@ -33,7 +64,7 @@ collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_wu3mh")
 speed = 100.0
-bow = ExtResource("2_d2wox")
+bow = SubResource("PackedScene_88q1l")
 bomb = ExtResource("3_rl6ch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

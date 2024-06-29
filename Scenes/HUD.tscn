@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpol7hadhd82j" path="res://Scenes/WaveCleared.tscn" id="4_8h3ty"]
 [ext_resource type="Texture2D" uid="uid://cmum88j6ki8gp" path="res://Sprites/bow_highres.png" id="5_b0mn6"]
 [ext_resource type="Texture2D" uid="uid://cnmwkg3v03rxq" path="res://Sprites/big_bomb.png" id="5_rlpmj"]
-[ext_resource type="PackedScene" path="res://Scenes/Victory.tscn" id="5_wv2nk"]
+[ext_resource type="PackedScene" uid="uid://b5q1la3ghkqst" path="res://Scenes/Victory.tscn" id="5_wv2nk"]
 
 [node name="HUDLayer" type="CanvasLayer"]
 script = ExtResource("1_t0m7c")
@@ -25,6 +25,7 @@ layout_mode = 1
 offset_right = 48.0
 offset_bottom = 23.0
 scale = Vector2(2, 2)
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="Icon" type="TextureRect" parent="HUD/Cash"]
@@ -42,6 +43,7 @@ text = "0
 "
 
 [node name="Shop" type="HBoxContainer" parent="HUD"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,12 +66,14 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 item_name = "Bomb"
-item_cost = 10
+item_cost = 1
 item_icon = ExtResource("5_rlpmj")
 is_item_consumable = true
 
 [node name="WaveCleared" parent="." instance=ExtResource("4_8h3ty")]
 visible = false
+mouse_filter = 2
 
 [node name="Victory" parent="." instance=ExtResource("5_wv2nk")]
 visible = false
+mouse_filter = 2

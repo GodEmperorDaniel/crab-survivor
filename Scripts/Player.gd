@@ -7,6 +7,8 @@ signal coin_picked_up
 @onready var animation = $Animation
 @onready var health_bar = $HealthBar
 
+var bombs := 0
+
 var coins : int = 0 :
 	get:
 		return HUD.coins
@@ -14,6 +16,9 @@ var coins : int = 0 :
 		HUD.coins = new_value
 
 var movement : Vector2 = Vector2.ZERO
+
+func _ready():
+	HUD.item_bought.connect(_item_bought)
 
 func _process(delta):
 	process_movement()
@@ -39,8 +44,9 @@ func _physics_process(delta):
 	move_and_collide(movement * delta)
 	
 func _input(event):
-	if event.is_action_pressed("bomb"):
+	if event.is_action_pressed("bomb") and bombs > 0:
 		create_bomb()
+		bombs -= 1
 
 func create_bomb():
 	var new_bomb := bomb.instantiate()
@@ -62,3 +68,8 @@ func _on_died():
 
 func _on_coin_picked_up():
 	coins += 1
+
+func _item_bought(item : String):
+	if item == "Bomb":
+		print("We now have", bombs, "bombs")
+		bombs += 1

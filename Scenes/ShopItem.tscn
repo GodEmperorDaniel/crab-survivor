@@ -71,4 +71,3 @@ theme_override_constants/shadow_offset_y = 1
 text = "3"
 
 [connection signal="gui_input" from="Container/Details" to="." method="_on_details_input"]
-[connection signal="gui_input" from="Container/Details" to="Container" method="_on_gui_input"]

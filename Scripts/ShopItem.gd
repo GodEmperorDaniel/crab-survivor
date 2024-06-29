@@ -18,5 +18,5 @@ func _ready():
 	_cost.text = str(item_cost)
 
 func _on_details_input(event):
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and event.pressed:
 		attempt_buy.emit(self)
