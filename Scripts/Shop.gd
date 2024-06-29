@@ -11,5 +11,3 @@ func _attempt_buy_item(item : ShopItem):
 	if Player.coins >= item.item_cost:
 		item_bought.emit(item.item_name)
 		Player.coins -= item.item_cost
-	else:
-		print("Not enough coins")

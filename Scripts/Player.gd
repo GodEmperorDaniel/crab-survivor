@@ -7,7 +7,13 @@ signal coin_picked_up
 @onready var animation = $Animation
 @onready var health_bar = $HealthBar
 
-var bombs := 0
+var bombs : int = 0 :
+	get:
+		return bombs
+	set(new_value):
+		bombs = new_value
+		HUD.bombs = new_value
+		print(bombs)
 
 var coins : int = 0 :
 	get:
@@ -71,5 +77,4 @@ func _on_coin_picked_up():
 
 func _item_bought(item : String):
 	if item == "Bomb":
-		print("We now have", bombs, "bombs")
 		bombs += 1
