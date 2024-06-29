@@ -11,6 +11,8 @@ var player = Player
 @onready var health_bar = $HealthBar
 var coin = preload("res://Scenes/Coin.tscn")
 
+signal died(Node)
+
 var vel = Vector2.ZERO
 
 var col
@@ -44,6 +46,7 @@ func do_attack():
 	player.attack(attack_damage)
 
 func _on_died():
+	died.emit(self)
 	var new_coin := coin.instantiate()
 	new_coin.position = position
 	call_deferred("add_sibling",new_coin)
