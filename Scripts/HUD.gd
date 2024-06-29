@@ -3,7 +3,7 @@ extends CanvasLayer
 signal item_bought(item: String)
 
 @onready var _amount_text := $HUD/Cash/Amount
-@onready var _shop := $Shop
+@onready var _shop := $HUD/Shop
 @onready var _wave_clear := $WaveCleared
 
 var coins : int = 0 :

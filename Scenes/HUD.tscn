@@ -13,6 +13,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -576.0
+offset_bottom = -323.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -38,6 +40,7 @@ text = "0
 "
 
 [node name="Shop" type="HBoxContainer" parent="HUD"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,28 +48,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" type="Control" parent="HUD/Shop"]
+[node name="ShopItem" parent="HUD/Shop" instance=ExtResource("3_rhx3o")]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ShopItem" parent="HUD/Shop/Control" instance=ExtResource("3_rhx3o")]
-visible = true
-layout_mode = 1
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="Control2" type="Control" parent="HUD/Shop"]
+[node name="ShopItem2" parent="HUD/Shop" instance=ExtResource("3_rhx3o")]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ShopItem" parent="HUD/Shop/Control2" instance=ExtResource("3_rhx3o")]
-visible = true
-layout_mode = 1
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="WaveCleared" parent="." instance=ExtResource("4_8h3ty")]
 visible = false
-
-[connection signal="item_bought" from="HUD/Shop/Control/ShopItem" to="." method="_on_shop_item_bought"]
-[connection signal="item_bought" from="HUD/Shop/Control2/ShopItem" to="." method="_on_shop_item_bought"]
