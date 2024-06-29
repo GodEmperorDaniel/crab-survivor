@@ -76,7 +76,5 @@ func _on_coin_picked_up():
 	coins += 1
 
 func _item_bought(item : String):
-	print(item)
 	if item == "Bomb":
-		print("We now have", bombs, "bombs")
 		bombs += 1
