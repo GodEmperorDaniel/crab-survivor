@@ -2,10 +2,18 @@ extends CanvasLayer
 
 signal item_bought(item: String)
 
-@onready var _amount_text := $HUD/Cash/Amount
+@onready var _amount_text := $HUD/VBoxContainer/Cash/Amount
 @onready var _shop := $HUD/Shop
 @onready var _wave_clear := $WaveCleared
 @onready var _victory_screen := $Victory
+@onready var _bombs := $HUD/VBoxContainer/Bombs/Amount
+
+var bombs : int = 0 :
+	get: 
+		return bombs
+	set(new_value):
+		bombs = new_value
+		_bombs.text = str(bombs)
 
 var coins : int = 0 :
 	get:
