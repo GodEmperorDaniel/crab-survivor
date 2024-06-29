@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Player="*res://Scenes/Player.tscn"
+HUD="*res://Scenes/HUD.tscn"
 
 [input]
 
@@ -54,6 +55,7 @@ attack={
 [layer_names]
 
 2d_physics/layer_2="Enemy"
+2d_physics/layer_3="Coins"
 
 [rendering]
 

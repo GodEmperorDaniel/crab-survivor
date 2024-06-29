@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://dn1no82mkvohx"]
 
-[ext_resource type="SpriteFrames" uid="uid://mt6we7f56io0" path="res://Sprites/SpriteFrames/player_running.tres" id="1_agmoa"]
-[ext_resource type="Script" path="res://Player.gd" id="1_wu3mh"]
+[ext_resource type="SpriteFrames" uid="uid://3dubb53wq3h" path="res://Sprites/SpriteFrames/player_running.tres" id="1_agmoa"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_wu3mh"]
 [ext_resource type="Texture2D" uid="uid://cwv8ukin2koai" path="res://Tiles/tile_0127.png" id="3_8rtw4"]
 [ext_resource type="Script" path="res://Scenes/Weapon.gd" id="4_1q3bt"]
-[ext_resource type="PackedScene" path="res://Scenes/HealthBar.tscn" id="5_sr1ur"]
+[ext_resource type="PackedScene" uid="uid://dow4vyaa53hfn" path="res://Scenes/HealthBar.tscn" id="5_sr1ur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq7ey"]
 size = Vector2(18, 20)
@@ -52,6 +52,8 @@ height = 18.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_wu3mh")
 speed = 100.0
 
@@ -94,6 +96,7 @@ zoom = Vector2(2.5, 2.5)
 offset_top = -23.0
 offset_bottom = -7.0
 
+[connection signal="coin_picked_up" from="." to="." method="_on_coin_picked_up"]
 [connection signal="animation_finished" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_finished"]
 [connection signal="animation_started" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_started"]
 [connection signal="body_entered" from="Animation/Weapon/AttackArea" to="Animation/Weapon" method="_on_attack_landed"]

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal coin_picked_up
 @export var speed : float = 1
 @onready var animation = $Animation
 
@@ -9,7 +10,7 @@ func _process(delta):
 	process_movement()
 	
 func _physics_process(delta):
-	move_and_collide(movement * speed * delta)
+	move_and_collide(movement * delta)
 
 func process_movement():
 	movement = Vector2.ZERO
@@ -34,3 +35,10 @@ func movement_started():
 
 func movement_stopped():
 	animation.stop()
+
+func _on_died():
+	queue_free()
+
+
+func _on_coin_picked_up():
+	HUD.coins += 1

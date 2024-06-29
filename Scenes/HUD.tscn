@@ -1,30 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://8nlmluv324ay"]
+[gd_scene load_steps=3 format=3 uid="uid://8nlmluv324ay"]
 
 [ext_resource type="Texture2D" uid="uid://0a2swy8muyhd" path="res://Tiles/tile_0093.png" id="1_0jsp6"]
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_t0m7c"]
 
-[node name="HUD" type="Control"]
+[node name="HUDLayer" type="CanvasLayer"]
+script = ExtResource("1_t0m7c")
+
+[node name="HUD" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 
-[node name="Cash" type="HBoxContainer" parent="."]
-layout_mode = 0
+[node name="Cash" type="HBoxContainer" parent="HUD"]
+layout_mode = 1
 offset_right = 48.0
 offset_bottom = 23.0
 theme_override_constants/separation = 0
 
-[node name="Icon" type="TextureRect" parent="Cash"]
+[node name="Icon" type="TextureRect" parent="HUD/Cash"]
 layout_mode = 2
 texture = ExtResource("1_0jsp6")
 stretch_mode = 5
 
-[node name="Amount" type="Label" parent="Cash"]
+[node name="Amount" type="Label" parent="HUD/Cash"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_shadow_color = Color(0.158472, 0.158472, 0.158472, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
-text = "100"
+text = "0
+"

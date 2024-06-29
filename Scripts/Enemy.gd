@@ -6,6 +6,7 @@ class_name Enemy
 var player = Player
 @onready var anim = $Animation
 @onready var health_bar = $HealthBar
+var coin = preload("res://Scenes/Coin.tscn")
 
 var vel = Vector2.ZERO
 
@@ -27,4 +28,7 @@ func attack(damage):
 	health_bar.health -= damage
 
 func _on_died():
+	var new_coin := coin.instantiate()
+	new_coin.position = position
+	add_sibling(new_coin)
 	queue_free()
