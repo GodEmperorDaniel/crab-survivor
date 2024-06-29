@@ -29,7 +29,7 @@ func _item_bought(item):
 	if item == "Bow":
 		if(got_bow):
 			var bow = weapon as Bow
-			
+			bow.decrease_shoot_timer()
 		else:
 			got_bow = true
 			weapon.queue_free()
