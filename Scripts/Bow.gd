@@ -21,7 +21,7 @@ func _on_shoot_timer_timeout():
 	can_shoot = true
 
 func create_arrow():
-	var new_arrow := arrow.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
+	var new_arrow := arrow.instantiate()
 	(new_arrow as Arrow).damage = damage
 	new_arrow.global_rotation_degrees = global_rotation_degrees + 90
 	new_arrow.position = global_position
