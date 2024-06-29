@@ -75,3 +75,5 @@ mouse_filter = 2
 [node name="Victory" parent="." instance=ExtResource("5_wv2nk")]
 visible = false
 mouse_filter = 2
+
+[connection signal="item_bought" from="HUD/Shop" to="." method="_on_shop_item_bought"]
