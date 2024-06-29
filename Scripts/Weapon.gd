@@ -5,5 +5,5 @@ signal attack_initiated
 signal attack_finished
 
 func _input(event):
-	if event.is_action_pressed("attack"):
+	if event.is_action("attack"):
 		attack_initiated.emit()

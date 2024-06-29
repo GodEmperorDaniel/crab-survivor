@@ -1,14 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn1no82mkvohx"]
+[gd_scene load_steps=11 format=3 uid="uid://dn1no82mkvohx"]
 
 [ext_resource type="SpriteFrames" uid="uid://3dubb53wq3h" path="res://Sprites/SpriteFrames/player_running.tres" id="1_agmoa"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_wu3mh"]
 [ext_resource type="Script" path="res://Scripts/WeaponPivot.gd" id="3_7mxgx"]
 [ext_resource type="PackedScene" uid="uid://d2ht2wwkchcs2" path="res://Scenes/Axe.tscn" id="4_2qjnj"]
-[ext_resource type="PackedScene" uid="uid://b426fn3t5x3og" path="res://Scenes/Bow.tscn" id="4_2th8d"]
+[ext_resource type="Texture2D" uid="uid://8mf3v08lmirn" path="res://Tiles/tile_0118.png" id="4_wfoe2"]
 [ext_resource type="PackedScene" uid="uid://dow4vyaa53hfn" path="res://Scenes/HealthBar.tscn" id="5_sr1ur"]
+[ext_resource type="Script" path="res://Scripts/Bow.gd" id="5_ug4ou"]
+[ext_resource type="PackedScene" uid="uid://j3ap3cxdcgi8" path="res://Scenes/Arrow.tscn" id="6_0tlba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq7ey"]
 size = Vector2(18, 20)
+
+[sub_resource type="PackedScene" id="PackedScene_ixv4o"]
+_bundled = {
+"conn_count": 2,
+"conns": PackedInt32Array(1073741826, 1073741825, 9, 8, 2, 0, 0, 1073741828, 1073741827, 11, 10, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("Bow", "Sprite2D", "texture", "script", "arrow", "ShootTimer", "Timer", "wait_time", "_on_attack_initiated", "attack_initiated", "_on_shoot_timer_timeout", "timeout"),
+"node_count": 2,
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("ShootTimer")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 1073741824, 0, 6, 5, -1, 1, 7, 3, 0),
+"variants": [ExtResource("4_wfoe2"), ExtResource("5_ug4ou"), ExtResource("6_0tlba"), 0.5],
+"version": 3
+}
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
@@ -29,7 +44,7 @@ speed_scale = 2.0
 
 [node name="WeaponPivot" type="Marker2D" parent="Animation"]
 script = ExtResource("3_7mxgx")
-bow = ExtResource("4_2th8d")
+bow = SubResource("PackedScene_ixv4o")
 
 [node name="Axe" parent="Animation/WeaponPivot" instance=ExtResource("4_2qjnj")]
 
