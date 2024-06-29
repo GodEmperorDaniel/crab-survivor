@@ -2,12 +2,13 @@ extends Weapon
 
 @export var damage : float = 50
 @onready var attack_box = $AttackArea
-@onready var animation = $WeaponAnimation
+@onready var animation = $AxeAnimation
 
 var hit_enemies : Array
 
 func _on_attack_initiated():
 	attack_box.process_mode = Node.PROCESS_MODE_INHERIT
+	animation.play("swing_axe")
 
 func _on_attack_landed(body):
 	if not body is Enemy:

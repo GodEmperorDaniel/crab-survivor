@@ -62,6 +62,7 @@ ready_next_wave={
 2d_physics/layer_1="Buildings"
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="Coins"
+2d_physics/layer_4="Layer 4"
 
 [rendering]
 

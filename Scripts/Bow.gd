@@ -1,6 +1,6 @@
 extends Weapon
 
-var arrow := preload("res://Scenes/Arrow.tscn")
+@export var arrow : PackedScene
 @onready var timer := $ShootTimer
 
 var can_shoot := true
