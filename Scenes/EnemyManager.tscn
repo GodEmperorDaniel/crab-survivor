@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_1que4"]
 script = ExtResource("2_ufcv1")
-number_enemies = 10
+number_enemies = 1
 enemy_scene = ExtResource("3_68y5w")
 spawn_frequency = 0.5
 
