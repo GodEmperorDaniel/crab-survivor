@@ -22,7 +22,7 @@ var won : bool = false
 
 @export var enemies : Array[Node] = []
 
-@export var scene_change : PackedScene
+@onready var scene_change = "res://Scenes/Main_Menu.tscn"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -53,25 +53,23 @@ func _wave_completed():
 		hud_opened = true
 	else:
 		hud.toggle_victory_screen(true)
-		hud_opened = true
 		won = true
 		pass
 
 func _input(event):
-	if(hud_opened && event.is_action_pressed("ready_next_wave")):
+	if(event.is_action_pressed("ready_next_wave")):
 		if(hud_opened):
 			hud.toggle_wave_cleared_control(false)
-			hud_opened = false
-			spawning_done = false
 			enemies_spawned_this_wave = 0
 			current_wave+=1
-		elif(won):
-			hud.toggle_victory_screen(false)
 			hud_opened = false
-			won = false
 			spawning_done = false
-			enemies_spawned_this_wave = 0
+		elif(won):
 			current_wave=0
+			hud.toggle_victory_screen(false)
+			won = false
+			enemies_spawned_this_wave = 0
 			wave_multiplier*=2
+			spawning_done = false
 	elif(event.is_action_pressed("return_to_menu")):
-		get_tree().change_scene_to_packed(scene_change)
+		get_tree().change_scene_to_file(scene_change)

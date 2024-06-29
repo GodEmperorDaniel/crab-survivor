@@ -1,13 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhoufngem8jup"]
+[gd_scene load_steps=12 format=3 uid="uid://bhoufngem8jup"]
 
 [ext_resource type="TileSet" uid="uid://c4sjy1lnoudde" path="res://Tilemap/Base_Tile_Set.tres" id="1_gjs6y"]
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="3_lef6b"]
 [ext_resource type="PackedScene" uid="uid://clt2u7jhx4qax" path="res://Scenes/EnemyManager.tscn" id="4_0xkfg"]
 [ext_resource type="SpriteFrames" uid="uid://8mcoxty4sdm8" path="res://Sprites/SpriteFrames/enemy_running.tres" id="4_k2ub6"]
 [ext_resource type="Script" path="res://Scripts/EnemyWave.gd" id="4_v6d5y"]
-[ext_resource type="PackedScene" path="res://Scenes/HealthBar.tscn" id="5_rc3ua"]
-[ext_resource type="PackedScene" uid="uid://c5s1jpdtaxi6e" path="res://Scenes/Main_Menu.tscn" id="7_11l41"]
-[ext_resource type="PackedScene" path="res://Scenes/ShopTrigger.tscn" id="7_wo0cu"]
+[ext_resource type="PackedScene" uid="uid://2d4syg6c6ihp" path="res://Scenes/HealthBar.tscn" id="5_rc3ua"]
+[ext_resource type="PackedScene" uid="uid://crgwwnp3uth07" path="res://Scenes/ShopTrigger.tscn" id="7_wo0cu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lbri"]
 size = Vector2(10, 12)
@@ -33,7 +32,7 @@ spawn_frequency = 0.5
 
 [sub_resource type="Resource" id="Resource_vsgo8"]
 script = ExtResource("4_v6d5y")
-number_enemies = 15
+number_enemies = 1
 enemy_scene = SubResource("PackedScene_fnbs6")
 spawn_frequency = 0.5
 
@@ -58,7 +57,6 @@ layer_3/tile_data = PackedInt32Array(262130, 0, 5, 262131, 65536, 5, 262132, 196
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("spawn_locations") instance=ExtResource("4_0xkfg")]
 spawn_locations = [NodePath("SpawnNorth"), NodePath("SpawnWest"), NodePath("SpawnSouth"), NodePath("SpawnEast")]
 waves = Array[ExtResource("4_v6d5y")]([SubResource("Resource_1que4"), SubResource("Resource_vsgo8")])
-scene_change = ExtResource("7_11l41")
 
 [node name="SpawnNorth" type="Node2D" parent="EnemyManager"]
 position = Vector2(-81, -388)

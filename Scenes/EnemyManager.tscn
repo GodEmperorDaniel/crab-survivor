@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="2_4x54h"]
 [ext_resource type="Script" path="res://Scripts/EnemyWave.gd" id="2_ufcv1"]
 [ext_resource type="SpriteFrames" uid="uid://8mcoxty4sdm8" path="res://Sprites/SpriteFrames/enemy_running.tres" id="3_gbjod"]
-[ext_resource type="PackedScene" path="res://Scenes/HealthBar.tscn" id="4_lmkn2"]
+[ext_resource type="PackedScene" uid="uid://2d4syg6c6ihp" path="res://Scenes/HealthBar.tscn" id="4_lmkn2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lbri"]
 size = Vector2(10, 12)
