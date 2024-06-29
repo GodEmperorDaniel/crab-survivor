@@ -1,21 +1,39 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhoufngem8jup"]
+[gd_scene load_steps=12 format=3 uid="uid://bhoufngem8jup"]
 
 [ext_resource type="TileSet" uid="uid://c4sjy1lnoudde" path="res://Tilemap/Base_Tile_Set.tres" id="1_gjs6y"]
-[ext_resource type="PackedScene" uid="uid://fu0iw37jpmal" path="res://Scenes/Enemy.tscn" id="2_ngq7g"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="3_lef6b"]
 [ext_resource type="PackedScene" uid="uid://clt2u7jhx4qax" path="res://Scenes/EnemyManager.tscn" id="4_0xkfg"]
+[ext_resource type="SpriteFrames" uid="uid://q2537wbdfuhb" path="res://Sprites/SpriteFrames/enemy_running.tres" id="4_k2ub6"]
 [ext_resource type="Script" path="res://Scripts/EnemyWave.gd" id="4_v6d5y"]
-[ext_resource type="PackedScene" path="res://Scenes/ShopTrigger.tscn" id="7_wo0cu"]
+[ext_resource type="PackedScene" uid="uid://dow4vyaa53hfn" path="res://Scenes/HealthBar.tscn" id="5_rc3ua"]
+[ext_resource type="PackedScene" uid="uid://dttqqpfjfd3ly" path="res://Scenes/ShopTrigger.tscn" id="7_wo0cu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lbri"]
+size = Vector2(10, 12)
+
+[sub_resource type="PackedScene" id="PackedScene_fnbs6"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(1073741828, 1073741827, 18, 17, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("Enemy", "CharacterBody2D", "z_index", "collision_layer", "script", "CollisionShape2D", "CollisionShape2D", "position", "shape", "debug_color", "Animation", "AnimatedSprite2D", "sprite_frames", "animation", "HealthBar", "offset_top", "offset_bottom", "_on_died", "owner_died"),
+"node_count": 4,
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("HealthBar")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 1073741824, 0, 6, 5, -1, 3, 7, 3, 8, 4, 9, 5, 0, 1073741825, 0, 11, 10, -1, 2, 12, 6, 13, 7, 0, 1073741826, 0, 2147483647, 14, 8, 2, 15, 9, 16, 10, 0),
+"variants": [1, 2, ExtResource("3_lef6b"), Vector2(0, 2), SubResource("RectangleShape2D_8lbri"), Color(0, 0.6, 0.701961, 0.4), ExtResource("4_k2ub6"), &"running", ExtResource("5_rc3ua"), -20.0, -4.0],
+"version": 3
+}
 
 [sub_resource type="Resource" id="Resource_1que4"]
 script = ExtResource("4_v6d5y")
 number_enemies = 1
-enemy_scene = ExtResource("2_ngq7g")
+enemy_scene = SubResource("PackedScene_fnbs6")
 spawn_frequency = 0.5
 
 [sub_resource type="Resource" id="Resource_vsgo8"]
 script = ExtResource("4_v6d5y")
 number_enemies = 15
-enemy_scene = ExtResource("2_ngq7g")
+enemy_scene = SubResource("PackedScene_fnbs6")
 spawn_frequency = 0.5
 
 [node name="Node2D" type="Node2D"]

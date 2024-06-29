@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b426fn3t5x3og"]
+
+[ext_resource type="Texture2D" uid="uid://8mf3v08lmirn" path="res://Tiles/tile_0118.png" id="1_ls3fr"]
+[ext_resource type="Script" path="res://Scripts/Bow.gd" id="2_prj8x"]
+[ext_resource type="PackedScene" uid="uid://j3ap3cxdcgi8" path="res://Scenes/Arrow.tscn" id="3_jwoh6"]
+
+[node name="Bow" type="Sprite2D"]
+texture = ExtResource("1_ls3fr")
+script = ExtResource("2_prj8x")
+arrow = ExtResource("3_jwoh6")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="attack_initiated" from="." to="." method="_on_attack_initiated"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

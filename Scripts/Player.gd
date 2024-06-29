@@ -2,8 +2,10 @@ extends CharacterBody2D
 
 signal coin_picked_up
 @export var speed : float = 1
+@export var bow : PackedScene
 @onready var animation = $Animation
 @onready var health_bar = $HealthBar
+
 var coins : int = 0 :
 	get:
 		return HUD.coins
@@ -11,9 +13,6 @@ var coins : int = 0 :
 		HUD.coins = new_value
 
 var movement : Vector2 = Vector2.ZERO
-
-func _ready():
-	HUD.item_bought.connect(_item_bought)
 
 func _process(delta):
 	process_movement()
@@ -53,6 +52,3 @@ func _on_died():
 
 func _on_coin_picked_up():
 	coins += 1
-
-func _item_bought(item):
-	print("bought a " + item)

@@ -16,10 +16,9 @@ var coins : int = 0 :
 func open_shop():
 	_shop.visible = true
 
-func _on_panel_container_gui_input(event):
-	if event is InputEventMouseButton and event.pressed:
-		_shop.visible = false
-		item_bought.emit("bow")
-
 func toggle_wave_cleared_control(toggle_on : bool):
 	_wave_clear.visible = toggle_on
+
+
+func _on_shop_item_bought(item):
+	item_bought.emit(item)
