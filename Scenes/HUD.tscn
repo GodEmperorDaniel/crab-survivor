@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://0a2swy8muyhd" path="res://Tiles/tile_0093.png" id="1_0jsp6"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_t0m7c"]
-[ext_resource type="PackedScene" path="res://Scenes/Shop.tscn" id="3_rhx3o"]
+[ext_resource type="PackedScene" uid="uid://beivs5vocvui1" path="res://Scenes/ShopItem.tscn" id="3_rhx3o"]
 [ext_resource type="PackedScene" uid="uid://bpol7hadhd82j" path="res://Scenes/WaveCleared.tscn" id="4_8h3ty"]
 [ext_resource type="PackedScene" uid="uid://cka81gx5qqtng" path="res://Scenes/Victory.tscn" id="5_wv2nk"]
 
@@ -38,7 +38,33 @@ theme_override_constants/shadow_offset_y = 1
 text = "0
 "
 
-[node name="Shop" parent="." instance=ExtResource("3_rhx3o")]
+[node name="Shop" type="HBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HUD/Shop"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShopItem" parent="HUD/Shop/Control" instance=ExtResource("3_rhx3o")]
+visible = true
+layout_mode = 1
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Control2" type="Control" parent="HUD/Shop"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShopItem" parent="HUD/Shop/Control2" instance=ExtResource("3_rhx3o")]
+visible = true
+layout_mode = 1
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
 [node name="WaveCleared" parent="." instance=ExtResource("4_8h3ty")]
 visible = false
@@ -47,3 +73,5 @@ visible = false
 visible = false
 
 [connection signal="item_bought" from="Shop" to="." method="_on_shop_item_bought"]
+[connection signal="item_bought" from="HUD/Shop/Control/ShopItem" to="." method="_on_shop_item_bought"]
+[connection signal="item_bought" from="HUD/Shop/Control2/ShopItem" to="." method="_on_shop_item_bought"]
