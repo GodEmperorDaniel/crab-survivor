@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpol7hadhd82j" path="res://Scenes/WaveCleared.tscn" id="4_8h3ty"]
 [ext_resource type="Texture2D" uid="uid://cmum88j6ki8gp" path="res://Sprites/bow_highres.png" id="5_b0mn6"]
 [ext_resource type="Texture2D" uid="uid://cnmwkg3v03rxq" path="res://Sprites/big_bomb.png" id="5_rlpmj"]
+[ext_resource type="PackedScene" uid="uid://b5q1la3ghkqst" path="res://Scenes/Victory.tscn" id="5_wv2nk"]
 
 [node name="HUDLayer" type="CanvasLayer"]
 script = ExtResource("1_t0m7c")
