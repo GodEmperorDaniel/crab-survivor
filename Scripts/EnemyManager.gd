@@ -12,6 +12,10 @@ var enemies_spawned_this_wave : int = 0
 
 var timer : float = 0.0
 
+var hud = HUD
+
+var hud_opened : bool = false
+
 @export var enemies : Array[Node] = []
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,10 +43,16 @@ func _remove_from_enemies(enemy : Node):
 
 func _wave_completed():
 	if(current_wave < waves.size()-1):
-		spawning_done = false
-		enemies_spawned_this_wave = 0
-		current_wave+=1
+		hud.toggle_wave_cleared_control(true)
+		hud_opened = true
 	else:
 		print("you won!")
 		pass
 
+func _input(event):
+	if(hud_opened && event.is_action_pressed("ready_next_wave")):
+		hud.toggle_wave_cleared_control(false)
+		hud_opened = false
+		spawning_done = false
+		enemies_spawned_this_wave = 0
+		current_wave+=1
