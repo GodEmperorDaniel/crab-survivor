@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dn1no82mkvohx"]
+[gd_scene load_steps=8 format=3 uid="uid://dn1no82mkvohx"]
 
 [ext_resource type="SpriteFrames" uid="uid://3dubb53wq3h" path="res://Sprites/SpriteFrames/player_running.tres" id="1_agmoa"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_wu3mh"]
 [ext_resource type="Script" path="res://Scripts/WeaponPivot.gd" id="3_7mxgx"]
 [ext_resource type="PackedScene" uid="uid://d2ht2wwkchcs2" path="res://Scenes/Axe.tscn" id="4_2qjnj"]
+[ext_resource type="PackedScene" uid="uid://b426fn3t5x3og" path="res://Scenes/Bow.tscn" id="4_2th8d"]
 [ext_resource type="PackedScene" uid="uid://dow4vyaa53hfn" path="res://Scenes/HealthBar.tscn" id="5_sr1ur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq7ey"]
@@ -28,6 +29,7 @@ speed_scale = 2.0
 
 [node name="WeaponPivot" type="Marker2D" parent="Animation"]
 script = ExtResource("3_7mxgx")
+bow = ExtResource("4_2th8d")
 
 [node name="Axe" parent="Animation/WeaponPivot" instance=ExtResource("4_2qjnj")]
 
