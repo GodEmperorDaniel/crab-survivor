@@ -10,19 +10,22 @@ var coin = preload("res://Scenes/Coin.tscn")
 
 var vel = Vector2.ZERO
 
+var col
+
 func init(_position):
 	position = _position
 
 func _process(delta):
 	if(player == null):
 		pass
+	vel = Vector2.ZERO
 	var direction = (player.position - position).normalized()
 	if direction:
 		anim.play("running")
-		vel = direction * speed * delta
+		vel = direction
 
 func _physics_process(delta):
-	move_and_collide(vel)
+	move_and_collide(vel * delta * speed)
 
 func attack(damage):
 	health_bar.health -= damage

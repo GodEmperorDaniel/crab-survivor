@@ -96,6 +96,7 @@ zoom = Vector2(2.5, 2.5)
 offset_top = -23.0
 offset_bottom = -7.0
 
+[connection signal="coin_picked_up" from="." to="." method="_on_coin_picked_up"]
 [connection signal="animation_finished" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_finished"]
 [connection signal="animation_started" from="Animation/Weapon/Animation" to="Animation/Weapon" method="_on_attack_animation_started"]
 [connection signal="body_entered" from="Animation/Weapon/AttackArea" to="Animation/Weapon" method="_on_attack_landed"]

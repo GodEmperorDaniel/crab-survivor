@@ -14,7 +14,7 @@ func _process(delta):
 	timer += delta
 	if(timer >= spawn_frequency):
 		timer = 0;
-		var enemy = enemy_scene.instantiate()
+		var enemy = enemy_scene.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
 		var random_index = randi_range(0,spawn_locations.size()-1)
 		enemy.init(spawn_locations[random_index].position)
 		add_child(enemy)
