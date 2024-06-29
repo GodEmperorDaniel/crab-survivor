@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2ht2wwkchcs2"]
+
+[ext_resource type="Texture2D" uid="uid://cwv8ukin2koai" path="res://Tiles/tile_0127.png" id="1_tc3wo"]
+[ext_resource type="Script" path="res://Scripts/Axe.gd" id="2_tl827"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xp83o"]
+radius = 5.0
+height = 18.0
+
+[sub_resource type="Animation" id="Animation_w0mug"]
+resource_name = "swing_axe"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 180.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jee3l"]
+_data = {
+"swing_axe": SubResource("Animation_w0mug")
+}
+
+[node name="Axe" type="Sprite2D"]
+position = Vector2(0, -12)
+texture = ExtResource("1_tc3wo")
+flip_h = true
+script = ExtResource("2_tl827")
+
+[node name="AttackArea" type="Area2D" parent="."]
+process_mode = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_xp83o")
+
+[node name="AxeAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_jee3l")
+}
+
+[connection signal="attack_finished" from="." to="." method="_on_attack_finished"]
+[connection signal="attack_initiated" from="." to="." method="_on_attack_initiated"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_landed"]
+[connection signal="animation_finished" from="AxeAnimation" to="." method="_on_weapon_animation_finished"]

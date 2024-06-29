@@ -1,9 +1,9 @@
 extends Sprite2D
+class_name Weapon
+
+signal attack_initiated
+signal attack_finished
 
 func _input(event):
 	if event.is_action_pressed("attack"):
-		if event is InputEventMouseButton:
-			attacked_at(event.position)
-
-func attacked_at(position):
-	print("Attacked position " + str(position))
+		attack_initiated.emit()

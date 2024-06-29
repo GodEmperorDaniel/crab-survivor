@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://0a2swy8muyhd" path="res://Tiles/tile_0093.png" id="1_0jsp6"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_t0m7c"]
-[ext_resource type="Texture2D" uid="uid://cmum88j6ki8gp" path="res://Sprites/bow.png" id="3_s2iv3"]
+[ext_resource type="Texture2D" uid="uid://cmum88j6ki8gp" path="res://Sprites/bow_highres.png" id="3_s2iv3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6hi7s"]
 border_width_left = 4
