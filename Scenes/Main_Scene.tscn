@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhoufngem8jup"]
+[gd_scene load_steps=4 format=3 uid="uid://bhoufngem8jup"]
 
 [ext_resource type="TileSet" uid="uid://c4sjy1lnoudde" path="res://Tilemap/Base_Tile_Set.tres" id="1_gjs6y"]
 [ext_resource type="PackedScene" uid="uid://clt2u7jhx4qax" path="res://Scenes/EnemyManager.tscn" id="4_0xkfg"]
+[ext_resource type="PackedScene" path="res://Scenes/ShopTrigger.tscn" id="7_wo0cu"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -35,3 +36,6 @@ position = Vector2(191, 386)
 
 [node name="SpawnEast" type="Node2D" parent="EnemyManager"]
 position = Vector2(386, -226)
+
+[node name="ShopTrigger" parent="." instance=ExtResource("7_wo0cu")]
+position = Vector2(-8, -40)
