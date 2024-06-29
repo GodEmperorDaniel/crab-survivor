@@ -5,6 +5,8 @@ extends Marker2D
 @export var bow : PackedScene
 @onready var weapon = $Axe
 
+var got_bow : bool = false
+
 var attack_start_rotation := 0
 
 func _ready():
@@ -24,8 +26,13 @@ func _on_attack_initiated():
 	attack_start_rotation = calculate_look_position()
 
 func _item_bought(item):
-	if item == "bow":
-		weapon.queue_free()
-		weapon = bow.instantiate()
-		weapon.position.x = 12
-		add_child(weapon)
+	if item == "Bow":
+		if(got_bow):
+			var bow = weapon as Bow
+			bow.decrease_shoot_timer()
+		else:
+			got_bow = true
+			weapon.queue_free()
+			weapon = bow.instantiate()
+			weapon.position.x = 12
+			add_child(weapon)

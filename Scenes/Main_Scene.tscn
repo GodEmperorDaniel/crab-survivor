@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhoufngem8jup"]
+[gd_scene load_steps=15 format=3 uid="uid://bhoufngem8jup"]
 
 [ext_resource type="TileSet" uid="uid://c4sjy1lnoudde" path="res://Tilemap/Base_Tile_Set.tres" id="1_gjs6y"]
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="3_lef6b"]
@@ -26,15 +26,29 @@ _bundled = {
 
 [sub_resource type="Resource" id="Resource_1que4"]
 script = ExtResource("4_v6d5y")
-number_enemies = 1
+number_enemies = 20
 enemy_scene = SubResource("PackedScene_fnbs6")
-spawn_frequency = 0.5
+spawn_frequency = 1.0
 
 [sub_resource type="Resource" id="Resource_vsgo8"]
 script = ExtResource("4_v6d5y")
-number_enemies = 1
+number_enemies = 50
 enemy_scene = SubResource("PackedScene_fnbs6")
 spawn_frequency = 0.5
+
+[sub_resource type="Resource" id="Resource_nd75r"]
+script = ExtResource("4_v6d5y")
+number_enemies = 100
+enemy_scene = SubResource("PackedScene_fnbs6")
+spawn_frequency = 0.5
+
+[sub_resource type="PackedScene" id="PackedScene_di6em"]
+
+[sub_resource type="Resource" id="Resource_67qfc"]
+script = ExtResource("4_v6d5y")
+number_enemies = 150
+enemy_scene = SubResource("PackedScene_di6em")
+spawn_frequency = 0.25
 
 [node name="Node2D" type="Node2D"]
 
@@ -56,7 +70,7 @@ layer_3/tile_data = PackedInt32Array(262130, 0, 5, 262131, 65536, 5, 262132, 196
 
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("spawn_locations") instance=ExtResource("4_0xkfg")]
 spawn_locations = [NodePath("SpawnNorth"), NodePath("SpawnWest"), NodePath("SpawnSouth"), NodePath("SpawnEast")]
-waves = Array[ExtResource("4_v6d5y")]([SubResource("Resource_1que4"), SubResource("Resource_vsgo8")])
+waves = Array[ExtResource("4_v6d5y")]([SubResource("Resource_1que4"), SubResource("Resource_vsgo8"), SubResource("Resource_nd75r"), SubResource("Resource_67qfc")])
 
 [node name="SpawnNorth" type="Node2D" parent="EnemyManager"]
 position = Vector2(-81, -388)

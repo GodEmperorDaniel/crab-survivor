@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+class_name Arrow
+
 @export var speed := 100
 @export var damage := 50
 

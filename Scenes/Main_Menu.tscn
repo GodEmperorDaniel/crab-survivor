@@ -165,6 +165,12 @@ text = "Jonathan Börjesson"
 label_settings = SubResource("LabelSettings_600i5")
 horizontal_alignment = 1
 
+[node name="Kenny" type="Label" parent="CanvasLayer/Credits/VBoxContainer"]
+layout_mode = 2
+text = "Art acquired from www.kenney.nl"
+label_settings = SubResource("LabelSettings_600i5")
+horizontal_alignment = 1
+
 [node name="ReturnButton" type="Button" parent="CanvasLayer/Credits"]
 layout_mode = 1
 anchors_preset = 3
