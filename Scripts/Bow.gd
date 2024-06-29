@@ -7,4 +7,5 @@ var can_shoot := true
 
 func _on_attack_initiated():
 	if can_shoot:
-		timer.start
+		timer.start()
+		get_tree().root.add_child(arrow.instantiate())

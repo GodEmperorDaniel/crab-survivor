@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://fu0iw37jpmal" path="res://Scenes/Enemy.tscn" id="2_ngq7g"]
 [ext_resource type="PackedScene" uid="uid://clt2u7jhx4qax" path="res://Scenes/EnemyManager.tscn" id="4_0xkfg"]
 [ext_resource type="Script" path="res://Scripts/EnemyWave.gd" id="4_v6d5y"]
-[ext_resource type="PackedScene" path="res://Scenes/ShopTrigger.tscn" id="7_wo0cu"]
+[ext_resource type="PackedScene" uid="uid://dttqqpfjfd3ly" path="res://Scenes/ShopTrigger.tscn" id="7_wo0cu"]
 
 [sub_resource type="Resource" id="Resource_1que4"]
 script = ExtResource("4_v6d5y")
