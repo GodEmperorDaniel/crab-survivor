@@ -3,6 +3,11 @@ extends CharacterBody2D
 signal coin_picked_up
 @export var speed : float = 1
 @onready var animation = $Animation
+var coins : int = 0 :
+	get:
+		return HUD.coins
+	set(new_value):
+		HUD.coins = new_value
 
 var movement : Vector2 = Vector2.ZERO
 
@@ -41,4 +46,4 @@ func _on_died():
 
 
 func _on_coin_picked_up():
-	HUD.coins += 1
+	coins += 1
