@@ -1,13 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://clt2u7jhx4qax"]
+[gd_scene load_steps=9 format=3 uid="uid://clt2u7jhx4qax"]
 
 [ext_resource type="Script" path="res://Scripts/EnemyManager.gd" id="1_3stqu"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="2_4x54h"]
 [ext_resource type="Script" path="res://Scripts/EnemyWave.gd" id="2_ufcv1"]
-[ext_resource type="PackedScene" uid="uid://fu0iw37jpmal" path="res://Scenes/Enemy.tscn" id="3_68y5w"]
+[ext_resource type="SpriteFrames" uid="uid://8mcoxty4sdm8" path="res://Sprites/SpriteFrames/enemy_running.tres" id="3_gbjod"]
+[ext_resource type="PackedScene" path="res://Scenes/HealthBar.tscn" id="4_lmkn2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lbri"]
+size = Vector2(10, 12)
+
+[sub_resource type="PackedScene" id="PackedScene_l51ve"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(1073741828, 1073741827, 18, 17, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("Enemy", "CharacterBody2D", "z_index", "collision_layer", "script", "CollisionShape2D", "CollisionShape2D", "position", "shape", "debug_color", "Animation", "AnimatedSprite2D", "sprite_frames", "animation", "HealthBar", "offset_top", "offset_bottom", "_on_died", "owner_died"),
+"node_count": 4,
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("HealthBar")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0, 1073741824, 0, 6, 5, -1, 3, 7, 3, 8, 4, 9, 5, 0, 1073741825, 0, 11, 10, -1, 2, 12, 6, 13, 7, 0, 1073741826, 0, 2147483647, 14, 8, 2, 15, 9, 16, 10, 0),
+"variants": [1, 2, ExtResource("2_4x54h"), Vector2(0, 2), SubResource("RectangleShape2D_8lbri"), Color(0, 0.6, 0.701961, 0.4), ExtResource("3_gbjod"), &"running", ExtResource("4_lmkn2"), -20.0, -4.0],
+"version": 3
+}
 
 [sub_resource type="Resource" id="Resource_1que4"]
 script = ExtResource("2_ufcv1")
 number_enemies = 1
-enemy_scene = ExtResource("3_68y5w")
+enemy_scene = SubResource("PackedScene_l51ve")
 spawn_frequency = 0.5
 
 [node name="EnemyManager" type="Node2D"]

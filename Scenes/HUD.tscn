@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://0a2swy8muyhd" path="res://Tiles/tile_0093.png" id="1_0jsp6"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_t0m7c"]
-[ext_resource type="PackedScene" uid="uid://beivs5vocvui1" path="res://Scenes/Shop.tscn" id="3_rhx3o"]
+[ext_resource type="PackedScene" path="res://Scenes/Shop.tscn" id="3_rhx3o"]
 [ext_resource type="PackedScene" uid="uid://bpol7hadhd82j" path="res://Scenes/WaveCleared.tscn" id="4_8h3ty"]
 
 [node name="HUDLayer" type="CanvasLayer"]

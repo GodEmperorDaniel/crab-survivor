@@ -8,6 +8,14 @@ var credits_button_font_size = 30
 @onready var return_to_menu_button : Button = $CanvasLayer/Credits/ReturnButton
 var return_to_menu_button_font_size = 50
 
+## OUR NAMES BOB
+@onready var credit_top_label : Label = $CanvasLayer/Credits/VBoxContainer/Top
+var credit_top_label_font_size = 30
+@onready var axel_label : Label = $CanvasLayer/Credits/VBoxContainer/Axel
+var axel_label_font_size = 25
+@onready var jonathan_label : Label = $CanvasLayer/Credits/VBoxContainer/Jonathan
+var jonathan_label_font_size = 25
+
 @onready var main = $CanvasLayer/Buttons
 @onready var credits = $CanvasLayer/Credits
 
@@ -22,6 +30,11 @@ func _process(delta):
 	main_game_button.add_theme_font_size_override("font_size", sin(time * 4) * 10 + main_game_button_font_size)
 	credits_button.add_theme_font_size_override("font_size", sin(time * 4) * 10 + credits_button_font_size)
 	return_to_menu_button.add_theme_font_size_override("font_size", sin(time * 4) * 10 + return_to_menu_button_font_size)
+	
+	credit_top_label.label_settings.font_size = sin(time * 4) * 10 + credit_top_label_font_size
+	axel_label.label_settings.font_size = sin(time * 4) * 10 + axel_label_font_size
+	jonathan_label.label_settings.font_size = sin(time * 4) * 10 + jonathan_label_font_size
+	
 
 
 func _on_button_down_credits():

@@ -3,11 +3,11 @@
 [ext_resource type="SpriteFrames" uid="uid://3dubb53wq3h" path="res://Sprites/SpriteFrames/player_running.tres" id="1_agmoa"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_wu3mh"]
 [ext_resource type="Script" path="res://Scripts/WeaponPivot.gd" id="3_7mxgx"]
-[ext_resource type="PackedScene" uid="uid://d2ht2wwkchcs2" path="res://Scenes/Axe.tscn" id="4_2qjnj"]
+[ext_resource type="PackedScene" path="res://Scenes/Axe.tscn" id="4_2qjnj"]
 [ext_resource type="Texture2D" uid="uid://8mf3v08lmirn" path="res://Tiles/tile_0118.png" id="4_wfoe2"]
-[ext_resource type="PackedScene" uid="uid://dow4vyaa53hfn" path="res://Scenes/HealthBar.tscn" id="5_sr1ur"]
+[ext_resource type="PackedScene" path="res://Scenes/HealthBar.tscn" id="5_sr1ur"]
 [ext_resource type="Script" path="res://Scripts/Bow.gd" id="5_ug4ou"]
-[ext_resource type="PackedScene" uid="uid://j3ap3cxdcgi8" path="res://Scenes/Arrow.tscn" id="6_0tlba"]
+[ext_resource type="PackedScene" path="res://Scenes/Arrow.tscn" id="6_0tlba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq7ey"]
 size = Vector2(18, 20)
