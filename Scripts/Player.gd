@@ -38,3 +38,7 @@ func movement_stopped():
 
 func _on_died():
 	queue_free()
+
+
+func _on_coin_picked_up():
+	HUD.coins += 1
