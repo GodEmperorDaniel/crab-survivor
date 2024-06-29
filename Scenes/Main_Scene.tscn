@@ -1,8 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhoufngem8jup"]
+[gd_scene load_steps=10 format=3 uid="uid://bhoufngem8jup"]
 
 [ext_resource type="TileSet" uid="uid://c4sjy1lnoudde" path="res://Tilemap/Base_Tile_Set.tres" id="1_gjs6y"]
 [ext_resource type="PackedScene" uid="uid://fu0iw37jpmal" path="res://Scenes/Enemy.tscn" id="2_ngq7g"]
 [ext_resource type="PackedScene" uid="uid://8nlmluv324ay" path="res://Scenes/HUD.tscn" id="3_r64i5"]
+[ext_resource type="PackedScene" uid="uid://clt2u7jhx4qax" path="res://Scenes/EnemyManager.tscn" id="4_0xkfg"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="5_evw6f"]
+[ext_resource type="SpriteFrames" uid="uid://8mcoxty4sdm8" path="res://Sprites/SpriteFrames/enemy_running.tres" id="6_gma3r"]
+[ext_resource type="PackedScene" path="res://Scenes/HealthBar.tscn" id="7_kdelj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lbri"]
+size = Vector2(10, 12)
+
+[sub_resource type="PackedScene" id="PackedScene_tsk3y"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(1073741828, 1073741827, 19, 18, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("Enemy", "CharacterBody2D", "z_index", "collision_layer", "collision_mask", "script", "CollisionShape2D", "CollisionShape2D", "position", "shape", "debug_color", "Animation", "AnimatedSprite2D", "sprite_frames", "animation", "HealthBar", "offset_top", "offset_bottom", "_on_died", "owner_died"),
+"node_count": 4,
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("HealthBar")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 4, 2, 0, 3, 1, 4, 2, 5, 3, 0, 1073741824, 0, 7, 6, -1, 3, 8, 4, 9, 5, 10, 6, 0, 1073741825, 0, 12, 11, -1, 2, 13, 7, 14, 8, 0, 1073741826, 0, 2147483647, 15, 9, 2, 16, 10, 17, 11, 0),
+"variants": [1, 3, 2, ExtResource("5_evw6f"), Vector2(0, 2), SubResource("RectangleShape2D_8lbri"), Color(0, 0.6, 0.701961, 0.4), ExtResource("6_gma3r"), &"running", ExtResource("7_kdelj"), -20.0, -4.0],
+"version": 3
+}
 
 [node name="Node2D" type="Node2D"]
 
@@ -26,3 +46,19 @@ layer_3/tile_data = PackedInt32Array(262130, 0, 5, 262131, 65536, 5, 262132, 196
 position = Vector2(72, 172)
 
 [node name="HUD" parent="." instance=ExtResource("3_r64i5")]
+
+[node name="Node2D" parent="." node_paths=PackedStringArray("spawn_locations") instance=ExtResource("4_0xkfg")]
+spawn_locations = [NodePath("Node2D"), NodePath("Node2D3"), NodePath("Node2D2"), NodePath("Node2D4")]
+enemy_scene = SubResource("PackedScene_tsk3y")
+
+[node name="Node2D" type="Node2D" parent="Node2D"]
+position = Vector2(-81, -388)
+
+[node name="Node2D2" type="Node2D" parent="Node2D"]
+position = Vector2(-391, 337)
+
+[node name="Node2D3" type="Node2D" parent="Node2D"]
+position = Vector2(191, 386)
+
+[node name="Node2D4" type="Node2D" parent="Node2D"]
+position = Vector2(386, -226)
