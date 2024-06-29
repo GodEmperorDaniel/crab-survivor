@@ -1,7 +1,9 @@
 extends Sprite2D
 
 func _on_area_entered(body):
-	if not body is Player:
-		pass
+	print("Area entered")
+	if body != Player:
+		return
 	
-	(body as Player).coin_picked_up
+	Player.coin_picked_up.emit()
+	queue_free()
