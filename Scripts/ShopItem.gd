@@ -6,7 +6,7 @@ signal attempt_buy(item : ShopItem)
 @export var item_name : String
 @export var item_cost : int = 3
 @export var item_icon : Texture2D
-@export var consumable : bool
+@export var is_item_consumable : bool
 
 @onready var _name := $Container/Details/Name
 @onready var _icon := $Container/Details/Icon

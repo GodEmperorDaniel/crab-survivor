@@ -43,7 +43,6 @@ func _input(event):
 		create_bomb()
 
 func create_bomb():
-	print("spawning bomb at", position)
 	var new_bomb := bomb.instantiate()
 	new_bomb.position = position
 	add_sibling(new_bomb)
