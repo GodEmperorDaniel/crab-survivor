@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dn1no82mkvohx"]
+[gd_scene load_steps=13 format=3 uid="uid://dn1no82mkvohx"]
 
 [ext_resource type="SpriteFrames" uid="uid://3dubb53wq3h" path="res://Sprites/SpriteFrames/player_running.tres" id="1_agmoa"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_wu3mh"]
+[ext_resource type="PackedScene" uid="uid://b426fn3t5x3og" path="res://Scenes/Bow.tscn" id="2_d2wox"]
 [ext_resource type="Script" path="res://Scripts/WeaponPivot.gd" id="3_7mxgx"]
+[ext_resource type="PackedScene" uid="uid://dmx7dh8lrjbh4" path="res://Scenes/Bomb.tscn" id="3_rl6ch"]
 [ext_resource type="PackedScene" uid="uid://d2ht2wwkchcs2" path="res://Scenes/Axe.tscn" id="4_2qjnj"]
 [ext_resource type="Texture2D" uid="uid://8mf3v08lmirn" path="res://Tiles/tile_0118.png" id="4_wfoe2"]
 [ext_resource type="PackedScene" uid="uid://dow4vyaa53hfn" path="res://Scenes/HealthBar.tscn" id="5_sr1ur"]
@@ -31,6 +33,8 @@ collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_wu3mh")
 speed = 100.0
+bow = ExtResource("2_d2wox")
+bomb = ExtResource("3_rl6ch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)

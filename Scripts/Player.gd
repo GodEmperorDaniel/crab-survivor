@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal coin_picked_up
 @export var speed : float = 1
 @export var bow : PackedScene
+@export var bomb : PackedScene
 @onready var animation = $Animation
 @onready var health_bar = $HealthBar
 
@@ -16,9 +17,6 @@ var movement : Vector2 = Vector2.ZERO
 
 func _process(delta):
 	process_movement()
-	
-func _physics_process(delta):
-	move_and_collide(movement * delta)
 
 func process_movement():
 	movement = Vector2.ZERO
@@ -36,6 +34,19 @@ func process_movement():
 		movement_started()
 	else:
 		movement_stopped()
+	
+func _physics_process(delta):
+	move_and_collide(movement * delta)
+	
+func _input(event):
+	if event.is_action_pressed("bomb"):
+		create_bomb()
+
+func create_bomb():
+	print("spawning bomb at", position)
+	var new_bomb := bomb.instantiate()
+	new_bomb.position = position
+	add_sibling(new_bomb)
 
 func movement_started():
 	animation.play("running")
