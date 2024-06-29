@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhoufngem8jup"]
+[gd_scene load_steps=10 format=3 uid="uid://bhoufngem8jup"]
 
 [ext_resource type="TileSet" uid="uid://c4sjy1lnoudde" path="res://Tilemap/Base_Tile_Set.tres" id="1_gjs6y"]
 [ext_resource type="PackedScene" uid="uid://fu0iw37jpmal" path="res://Scenes/Enemy.tscn" id="2_ngq7g"]
 [ext_resource type="PackedScene" uid="uid://clt2u7jhx4qax" path="res://Scenes/EnemyManager.tscn" id="4_0xkfg"]
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="5_evw6f"]
-[ext_resource type="SpriteFrames" uid="uid://8mcoxty4sdm8" path="res://Sprites/SpriteFrames/enemy_running.tres" id="6_gma3r"]
-[ext_resource type="PackedScene" path="res://Scenes/HealthBar.tscn" id="7_kdelj"]
+[ext_resource type="SpriteFrames" uid="uid://q2537wbdfuhb" path="res://Sprites/SpriteFrames/enemy_running.tres" id="6_gma3r"]
+[ext_resource type="PackedScene" uid="uid://dow4vyaa53hfn" path="res://Scenes/HealthBar.tscn" id="7_kdelj"]
+[ext_resource type="PackedScene" uid="uid://dttqqpfjfd3ly" path="res://Scenes/ShopTrigger.tscn" id="7_wo0cu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lbri"]
 size = Vector2(10, 12)
@@ -59,3 +60,6 @@ position = Vector2(191, 386)
 
 [node name="Node2D4" type="Node2D" parent="Node2D"]
 position = Vector2(386, -226)
+
+[node name="ShopTrigger" parent="." instance=ExtResource("7_wo0cu")]
+position = Vector2(-8, -40)
