@@ -6,6 +6,8 @@ extends Node
 
 var current_wave : int = 0
 
+var wave_multiplier : int = 1
+
 var spawning_done = false
 
 var enemies_spawned_this_wave : int = 0
@@ -16,17 +18,21 @@ var hud = HUD
 
 var hud_opened : bool = false
 
+var won : bool = false
+
 @export var enemies : Array[Node] = []
+
+@export var scene_change : PackedScene
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(spawning_done):
 		return
-	if(enemies_spawned_this_wave >= waves[current_wave].number_enemies):
+	if(enemies_spawned_this_wave >= waves[current_wave].number_enemies * wave_multiplier):
 		spawning_done = true
 		return
 	timer += delta
-	if(timer >= waves[current_wave].spawn_frequency):
+	if(timer * wave_multiplier >= waves[current_wave].spawn_frequency):
 		timer = 0;
 		var enemy = waves[current_wave].enemy_scene.instantiate()
 		var random_index = randi_range(0,spawn_locations.size()-1)
@@ -46,13 +52,26 @@ func _wave_completed():
 		hud.toggle_wave_cleared_control(true)
 		hud_opened = true
 	else:
-		print("you won!")
+		hud.toggle_victory_screen(true)
+		hud_opened = true
+		won = true
 		pass
 
 func _input(event):
 	if(hud_opened && event.is_action_pressed("ready_next_wave")):
-		hud.toggle_wave_cleared_control(false)
-		hud_opened = false
-		spawning_done = false
-		enemies_spawned_this_wave = 0
-		current_wave+=1
+		if(hud_opened):
+			hud.toggle_wave_cleared_control(false)
+			hud_opened = false
+			spawning_done = false
+			enemies_spawned_this_wave = 0
+			current_wave+=1
+		elif(won):
+			hud.toggle_victory_screen(false)
+			hud_opened = false
+			won = false
+			spawning_done = false
+			enemies_spawned_this_wave = 0
+			current_wave=0
+			wave_multiplier*=2
+	elif(event.is_action_pressed("return_to_menu")):
+		get_tree().change_scene_to_packed(scene_change)
