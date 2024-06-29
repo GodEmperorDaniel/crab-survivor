@@ -83,8 +83,9 @@ offset_top = -23.0
 offset_bottom = -7.0
 
 [connection signal="coin_picked_up" from="." to="." method="_on_coin_picked_up"]
+[connection signal="attack_finished" from="Animation/WeaponPivot/Weapon" to="Animation/WeaponPivot/Weapon" method="_on_attack_finished"]
 [connection signal="attack_initiated" from="Animation/WeaponPivot/Weapon" to="Animation/WeaponPivot" method="_on_attack_initiated"]
 [connection signal="attack_initiated" from="Animation/WeaponPivot/Weapon" to="Animation/WeaponPivot/Weapon" method="_on_attack_initiated"]
 [connection signal="body_entered" from="Animation/WeaponPivot/Weapon/AttackArea" to="Animation/WeaponPivot/Weapon" method="_on_attack_landed"]
-[connection signal="animation_finished" from="Animation/WeaponPivot/Weapon/WeaponAnimation" to="." method="_on_weapon_animation_finished"]
+[connection signal="animation_finished" from="Animation/WeaponPivot/Weapon/WeaponAnimation" to="Animation/WeaponPivot/Weapon" method="_on_weapon_animation_finished"]
 [connection signal="owner_died" from="HealthBar" to="." method="_on_died"]

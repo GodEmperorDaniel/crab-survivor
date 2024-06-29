@@ -1,6 +1,7 @@
 extends Sprite2D
 
 signal attack_initiated
+signal attack_finished
 
 @export var damage : float = 50
 @onready var attack_box = $AttackArea
@@ -16,7 +17,6 @@ func _on_attack_initiated():
 	attack_box.process_mode = Node.PROCESS_MODE_INHERIT
 
 func _on_attack_landed(body):
-	print("attack landed")
 	if not body is Enemy:
 		return
 	
@@ -27,3 +27,11 @@ func _on_attack_landed(body):
 	
 	hit_enemies.append(enemy)
 	enemy.attack(damage)
+
+
+func _on_weapon_animation_finished(anim_name):
+	attack_finished.emit()
+
+func _on_attack_finished():
+	attack_box.process_mode = Node.PROCESS_MODE_DISABLED
+	hit_enemies.clear()
