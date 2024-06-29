@@ -13,6 +13,11 @@ var coins : int = 0 :
 	set(new_value):
 		coins = new_value
 		_amount_text.text = str(coins)
+		
+func _ready():
+	for child in get_children():
+		if child is ShopItem:
+			child.attempt_buy.connect(_attempt_buy_item)
 
 func toggle_shop(toggle_on : bool):
 	_shop.visible = toggle_on
@@ -25,3 +30,8 @@ func toggle_victory_screen(toggle_on : bool):
 
 func _on_shop_item_bought(item):
 	item_bought.emit(item)
+
+func _attempt_buy_item(item : ShopItem):
+	if coins >= item.item_cost:
+		item_bought.emit(item.item_name)
+		coins -= item.item_cost
