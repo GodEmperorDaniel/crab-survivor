@@ -1,8 +1,9 @@
 extends Sprite2D
 
+signal attack_initiated
+
 @export var damage : float = 50
 @onready var attack_box = $AttackArea
-@onready var animation = $Animation
 
 var attacking := false
 
@@ -10,12 +11,7 @@ var hit_enemies : Array
 
 func _input(event):
 	if event.is_action_pressed("attack"):
-		if event is InputEventMouseButton:
-			attempt_attack(event.position)
-
-func attempt_attack(position):
-	if not attacking:
-		animation.play("attack")
+		attack_initiated.emit()
 
 func _on_attack_animation_started(anim_name):
 	attack_box.process_mode = Node.PROCESS_MODE_INHERIT
