@@ -16,6 +16,9 @@ var axel_label_font_size = 25
 @onready var jonathan_label : Label = $CanvasLayer/Credits/VBoxContainer/Jonathan
 var jonathan_label_font_size = 25
 
+@onready var kenny_label : Label = $CanvasLayer/Credits/VBoxContainer/Kenny
+var kenny_label_font_size = 25
+
 @onready var main = $CanvasLayer/Buttons
 @onready var credits = $CanvasLayer/Credits
 
@@ -34,7 +37,7 @@ func _process(delta):
 	credit_top_label.label_settings.font_size = sin(time * 4) * 10 + credit_top_label_font_size
 	axel_label.label_settings.font_size = sin(time * 4) * 10 + axel_label_font_size
 	jonathan_label.label_settings.font_size = sin(time * 4) * 10 + jonathan_label_font_size
-	
+	kenny_label.label_settings.font_size = sin(time * 4) * 10 + kenny_label_font_size
 
 
 func _on_button_down_credits():
