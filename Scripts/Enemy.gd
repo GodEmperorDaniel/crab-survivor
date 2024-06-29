@@ -4,7 +4,7 @@ class_name Enemy
 @export var speed = 50.0
 @export var attack_range = 20
 @export var attack_damage = 2.0
-@onready var timer = $Timer
+@export var attack_time = 0.5
 
 var player = Player
 @onready var anim = $Animation
@@ -18,15 +18,18 @@ var col
 func init(_position):
 	position = _position
 
+var timer = 0.0
 func _process(delta):
 	if(player == null):
 		pass
 	vel = Vector2.ZERO
 	var direction = (player.position - position)
 	if direction:
-		if (direction.length() < attack_range and timer.paused):
-			print("started attack timer")
-			timer.start(1)
+		if (direction.length() < attack_range):
+			timer += delta
+			if(timer >= attack_time):
+				do_attack()
+				timer = 0.0
 		else:
 			anim.play("running")
 			vel = direction.normalized()
@@ -38,7 +41,6 @@ func attack(damage):
 	health_bar.health -= damage
 
 func do_attack():
-	print("attacked")
 	player.attack(attack_damage)
 
 func _on_died():

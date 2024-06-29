@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhoufngem8jup"]
+[gd_scene load_steps=8 format=3 uid="uid://bhoufngem8jup"]
 
 [ext_resource type="TileSet" uid="uid://c4sjy1lnoudde" path="res://Tilemap/Base_Tile_Set.tres" id="1_gjs6y"]
-[ext_resource type="PackedScene" uid="uid://fu0iw37jpmal" path="res://Scenes/Enemy.tscn" id="2_ngq7g"]
 [ext_resource type="PackedScene" uid="uid://clt2u7jhx4qax" path="res://Scenes/EnemyManager.tscn" id="4_0xkfg"]
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="5_evw6f"]
 [ext_resource type="SpriteFrames" uid="uid://8mcoxty4sdm8" path="res://Sprites/SpriteFrames/enemy_running.tres" id="6_gma3r"]
@@ -41,21 +40,18 @@ layer_3/name = "Over Player"
 layer_3/z_index = 3
 layer_3/tile_data = PackedInt32Array(262130, 0, 5, 262131, 65536, 5, 262132, 196608, 5, 262133, 131072, 5, 196594, 0, 4, 196595, 196608, 4, 196596, 65536, 4, 196597, 131072, 4, -262146, 327680, 5, -262145, 458752, 5, -327680, 327680, 5, -327679, 393216, 5, -262147, 262144, 5, -327682, 327680, 4, -327681, 327680, 4, -393216, 327680, 4, -393215, 393216, 4, -327683, 262144, 4, 393215, 524288, 7, 262149, 0, 5, 262150, 65536, 5, 262151, 196608, 5, 262152, 196608, 5, 262153, 131072, 5, 196614, 196608, 4, 196615, 65536, 4, 196616, 65536, 4, 196617, 131072, 4, 196613, 0, 4)
 
-[node name="Enemy" parent="." instance=ExtResource("2_ngq7g")]
-position = Vector2(72, 172)
-
-[node name="Node2D" parent="." node_paths=PackedStringArray("spawn_locations") instance=ExtResource("4_0xkfg")]
-spawn_locations = [NodePath("Node2D"), NodePath("Node2D2"), NodePath("Node2D3"), NodePath("Node2D4")]
+[node name="EnemyManager" parent="." node_paths=PackedStringArray("spawn_locations") instance=ExtResource("4_0xkfg")]
+spawn_locations = [NodePath("SpawnNorth"), NodePath("SpawnWest"), NodePath("SpawnSouth"), NodePath("SpawnEast")]
 enemy_scene = SubResource("PackedScene_0c3ia")
 
-[node name="Node2D" type="Node2D" parent="Node2D"]
+[node name="SpawnNorth" type="Node2D" parent="EnemyManager"]
 position = Vector2(-81, -388)
 
-[node name="Node2D2" type="Node2D" parent="Node2D"]
+[node name="SpawnWest" type="Node2D" parent="EnemyManager"]
 position = Vector2(-391, 337)
 
-[node name="Node2D3" type="Node2D" parent="Node2D"]
+[node name="SpawnSouth" type="Node2D" parent="EnemyManager"]
 position = Vector2(191, 386)
 
-[node name="Node2D4" type="Node2D" parent="Node2D"]
+[node name="SpawnEast" type="Node2D" parent="EnemyManager"]
 position = Vector2(386, -226)
