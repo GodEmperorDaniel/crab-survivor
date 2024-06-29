@@ -42,13 +42,13 @@ text = "0
 "
 
 [node name="Shop" type="HBoxContainer" parent="HUD"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = -500
 script = ExtResource("3_jov33")
 
 [node name="Bow" parent="HUD/Shop" instance=ExtResource("3_rhx3o")]
@@ -57,7 +57,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 item_name = "Bow"
 item_icon = ExtResource("5_b0mn6")
-consumable = true
+is_item_consumable = true
 
 [node name="Bomb" parent="HUD/Shop" instance=ExtResource("3_rhx3o")]
 layout_mode = 2
@@ -66,6 +66,7 @@ size_flags_vertical = 4
 item_name = "Bomb"
 item_cost = 10
 item_icon = ExtResource("5_rlpmj")
+is_item_consumable = true
 
 [node name="WaveCleared" parent="." instance=ExtResource("4_8h3ty")]
 visible = false
